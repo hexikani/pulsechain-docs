@@ -8,7 +8,7 @@ This article assumes that `/blockchain` directory will be used to store all file
 # Types of nodes
 
 PulseChain node software (`geth`) is available as a Docker image and can be pulled from [registry.gitlab.com/pulsechaincom/go-pulse](registry.gitlab.com/pulsechaincom/go-pulse). Typically the latest version shall be used.
-Docker container is preconfigured to run `geth` command and therefore any arguments added to the `docker run` command are passed as argument to the `geth` invoked withing the container.
+Docker container is preconfigured to run `geth` command and therefore any arguments added to the `docker run` command are passed as argument to the `geth` invoked within the container.
 
 You can run in the following mode:
 - **Validator node** - this is a validating node of the consensus part of the blockchain network. Validator node has to have an associated account address and must be running in `--mine` mode which allows for sealing of new block. Validator has to be registered (see below) into the PulseChain smart contract to become a candidate for next rotation.
@@ -67,7 +67,7 @@ Here the optional `-f` flag allows follow mode for tracking new logged lines.
 
 ## Docker Compose script
 
-You can used `docker-compose` to setup and manager the Docker container. You will need a file named `docker-compose.yml` with the following content:
+You can used `docker-compose` to setup and manage the Docker container. You will need a file named `docker-compose.yml` with the following content:
 ```yaml
 version: '3.4'
 
@@ -93,11 +93,11 @@ services:
       - --password=/blockchain/pass.txt
       - --mine
 ```
-To active container using this Docker Compose script you have to run the following command from within the directory where `docker-compose.yml` is located:
+To start the container using this Docker Compose script you have to run the following command from within the directory where `docker-compose.yml` is located:
 ```sh
 docker-compose up -d
 ```
-While the containers are started not the named of the newly created container. If you current directory was let's say `pulsechain/` then the container will most likely be named `pulsechain_node_1`.
+The docker-compose tool will print names of container created or started. Note this name for any future actions with this (see below). If your current directory was let's say `pulsechain/` then the container will most likely be named `pulsechain_node_1`.
 
 To shutdown the container run from within the directory where `docker-compose.yml` is located:
 ```sh

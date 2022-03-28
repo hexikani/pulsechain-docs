@@ -58,19 +58,24 @@ Testnet use `tPLS` ad the currency symbol for the native coin.
 
 ## Testnet v1
 
-Testnet v1 was replaced with v2.
+Testnet v1 was switched off, was replaced with v2.
 {:.warning}
 
 - Last Ethereum pre-fork block `13224745`
 - Chain ID: `940`
 - Public RPC endpoint: `https://rpc.testnet.pulsechain.com`
+- Public WebSocket endpoint: `wss://ws.testnet.pulsechain.com`
 
 ## Testnet v2
+
+Testnet v2 was switched off, was replaced with v2b.
+{:.warning}
 
 Basic information:
 - Last Ethereum pre-fork block `13224745` (same as v1)
 - Chain ID: `940`
 - Public RPC endpoint: `https://rpc.v2.testnet.pulsechain.com`
+- Public WebSocket endpoint: `ws://ws.v2.testnet.pulsechain.com`
 
 ## Testnet v2b
 
@@ -82,4 +87,5 @@ Basic information:
 - Last Ethereum pre-fork block: `14360999`
 - Chain ID: `941`
 - Public RPC endpoint: `https://rpc.v2b.testnet.pulsechain.com`
+- Public WebSocket endpoint: `wss://ws.v2b.testnet.pulsechain.com`
 

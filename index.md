@@ -33,9 +33,11 @@ At time of rotation:
 Validators that are unresponsive or otherwise fail to produce their block in-turn will be _slashed_:
 - Number of slashes is tracked over time.
 - Once 50 slashes have been reached, the validator is given a _Misdemeanor_ - this zeros out the accrued fees the validator has earned up to that point in the rotation, but they can still earn fees for future blocks. The income stripped from the validator will later be distributed evenly among all validators. <!-- TODO: really all or top 33? -->
-- Once 150 slashes have been reached, the validator is given a _Felony_ - this does everything the Misdemeanor and **removes the validator from the current rotation**.
+- Once 150 slashes have been reached, the validator is given a _Felony_ - this does everything the Misdemeanor and **removes the validator from the current rotation**. Then the network runs will less than 33 validators - new validators are added with the start of next rotation.
 - Slashes decay over time. Every rotation will remove up to 37 slashes from each validator. <!-- TODO: is Misdemeanor or Felony every decreased? -->
 - Validators can unregister themselves if they wish to go offline.
+
+
 
 # Validators & Staking dApp
 

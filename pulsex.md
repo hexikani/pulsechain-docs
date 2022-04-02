@@ -7,6 +7,8 @@ PulseX is a [Uniswap V2](https://docs.uniswap.org/protocol/V2/introduction) comp
 # Testnet v2b
 Smart contract of PulseXRouter03: `0xb4A7633D8932de086c9264D5eb39a8399d7C0E3A`
 
+Smart contract of PulseXFactory02: `0xb242aA8A863CfcE9fcBa2b9a6B00b4cd62343f27`
+
 Smart contract of Wrapped PLS: `0x8a810ea8B121d08342E9e7696f4a9915cBE494B7`
 
 ## GraphQL

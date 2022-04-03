@@ -129,7 +129,7 @@ At the moment running the RPC node requires the `--mine` argument, otherwise som
 You can setup the Docker container with PulseChain RPC node manually using this command:
 ```sh
 docker run -d -v /blockchain:/blockchain 
-	-p 30312:30312/tcp -p 30312:30312/udp -p 8575:8575/tcp -p 8576:8576/tcp -p 8576:8576 \
+	-p 30312:30312/tcp -p 30312:30312/udp -p 8575:8575/tcp -p 8576:8576/tcp \
 	--name pulsechain_rpcnode \
 	registry.gitlab.com/pulsechaincom/go-pulse \
 	--datadir=/blockchain --pulsechain-testnet \

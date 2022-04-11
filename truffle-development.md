@@ -1,5 +1,5 @@
 ---
-title: Smart Contract Development
+title: Smart Contract Development with Truffle
 ---
 
 # Setup Truffle project
@@ -90,6 +90,8 @@ Before your start make sure you have tPLS or PLS for gas available on your accou
 truffle migrate --network testnet
 ```
 
+If you intend to verify your contract on PulseScan you have to use Windows line endings in you `.sol` files.
+{:.info}
 
 # Contract verification
 
@@ -102,11 +104,14 @@ Then edit your `truffle-config.js` and add the following under `module.exports`:
 ```javascript
   plugins: ['truffle-plugin-verify'],
   api_keys: {
-    etherscan: '0'
+    etherscan: '0' // this is dummy API key, PulseScan doesn't need any, but it's required by truffle-plugin-verify.
   },
 ```
 
-Truffle verification plugin does not support PulseChain, therefore it needs to be patched by editing `./node_modules/truffle-plugin-verify/constants.js` and:
+Truffle verification plugin does not support PulseChain, therefore it needs to be patched
+{:.warning}
+
+Edit `./node_modules/truffle-plugin-verify/constants.js` and:
 - add to `API_URLS` a new line:
 ```javascript
 941: 'https://scan.v2b.testnet.pulsechain.com/api',
@@ -116,8 +121,11 @@ Truffle verification plugin does not support PulseChain, therefore it needs to b
 941: 'https://scan.v2b.testnet.pulsechain.com',
 ```
 
-Then run:
+Finally edit `./node_modules/truffle-plugin-verify/verify.js` and comment out line `offset: 1` (used in function `fetchConstructorValues()`). PulseScan does support this argument and `txlist` requests would otherwise get stuck and time out.
+
+Now you should be able to verify your contract:
 ```sh
-truffle run verify Migrations --network testnet --debug
+truffle run verify YourContract --network testnet --debug
 ```
 
+This command can take a while. While waiting for verification you can also check manually the `Code` tab on PulseScan, if the contract is shown as verified there, you can stop the command.

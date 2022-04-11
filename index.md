@@ -1,9 +1,10 @@
 ---
-title: PulseChain documentation
+title: PulseChain Unofficial Documentation
 ---
 
 This page contains technical documentation about [PulseChain](https://www.pulsechain.com/) blockchain network and some of the projects running on PulseChain.
 This documentation is created by community independently on the PulseChain development team with the intent to simplify onboarding of new developers and blockchain projects and to support the development community.
+
 
 PulseChain is a full state for of Ethereum. PulseChain consensus was originally forked from older version of BSC and has been modified substantially. Later on many upstream Go-Ethereum changes were brought in. Code was also modified to support the dual consensus, because PulseChain has to support crossing the fork boundary and convert from post-London Ethereum's PoW to PulseChain's PoS. PulseChain has it own token burn (25% of transaction costs are burnt) which is unrelated to London EIP-1559. After all this the PulseChain code is closer to Go-Ethereum than to BSC.
 
@@ -42,7 +43,6 @@ Validators that are unresponsive or otherwise fail to produce their block in-tur
 # Validators & Staking dApp
 
 Validators and stakes from are managed through a set of smart contracts. PulseChain's default user interface for this is dApp which is dedicated for each version of the PulseChain:
-- [Validators & Staking for Testnet v2](https://stake.v2.testnet.pulsechain.com/)
 - [Validators & Staking for Testnet v2b](https://stake.v2b.testnet.pulsechain.com/)
 
 The HowToPulse.com team created [alternative dApp]() which can be used as well.
@@ -56,7 +56,8 @@ The HowToPulse.com team created [alternative dApp]() which can be used as well.
 # Testnets
 
 Official documentation for the PulseChain Testnet is available [in the Gitlab repository](https://gitlab.com/pulsechaincom/pulsechain-testnet).
-Testnet use `tPLS` ad the currency symbol for the native coin.
+{:.info}
+Testnet uses `tPLS` as the currency symbol for the native coin.
 
 ## Testnet v1
 

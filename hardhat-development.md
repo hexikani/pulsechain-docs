@@ -1,11 +1,10 @@
 ---
-title: Smart Contract Development
+title: Smart Contract Development with Harthat
 ---
 
 # Setup Hardhat project
 
-Create a project directory and setup Hardhat according to [tutorial](https://hardhat.org/tutorial/creating-a-new-hardhat-project.html)
-
+Create a project directory and setup Hardhat according to [tutorial](https://hardhat.org/tutorial/creating-a-new-hardhat-project.html):
 ```sh
 npm init
 npm install --save-dev hardhat
@@ -70,11 +69,23 @@ Then you need to adjust compiler version to be used in `hardhat.config.js` under
 
 # Deploy to PulseChain
 
-Before your start make sure you have tPLS or PLS for gas available on your account specified by the `PKEYS` (see above). You also need a deploy scripts, in the example below refered to as `scripts/deploy.js`.
+Before your start make sure you have tPLS or PLS for gas available on your account specified by the `PKEYS` (see above). You also need a deploy scripts, in the example below referred to as `scripts/deploy.js`.
 You can deploy your smart contracts as:
 ```sh
 npx hardhat run scripts/deploy.js --network testnet
 ```
+
+Your deploy script should contain some code to print out address of the deployed contract - it usually looks like this:
+```javascript
+...
+const contract = await YourContract.deploy();
+console.log("YourContract address:", contract.address);
+...
+```
+You will need the contract's address for contract verification below.
+
+If you intend to verify your contract on PulseScan you have to use Windows line endings in you `.sol` files.
+{:.info}
 
 # Contract verification
 
@@ -83,7 +94,7 @@ You can use `hardhat` Etherscan plugin to verify smart contract with [PulseScan]
 npm install --save-dev @nomiclabs/hardhat-etherscan
 ```
 
-and then add the following statements to your `hardhat.config.js` at the global scope:
+Then add the following statements to your `hardhat.config.js` at the global scope:
 ```javascript
 require("@nomiclabs/hardhat-etherscan");
 const { chainConfig } = require("@nomiclabs/hardhat-etherscan/dist/src/ChainConfig");
@@ -96,7 +107,12 @@ chainConfig['testnet'] = {
 }
 ```
 
+Before you proceed with contract verification make sure the contract is indexed by PulseScan. When you open the address of your smart contract in PulseScan you should see your `Contract Creation Success` transaction as well as the `Code` tab.
+{:.info}
+
+Now you should be able to verify your contract:
 ```sh
 npx hardhat verify --network testnet 0xDEPLOYED_CONTRACT_ADDRESS <Constructor argument>
 ```
 
+This command can take a while and there were cases when it got stuck. While waiting for verification you can also check manually the `Code` tab on PulseScan, if the contract is shown as verified there, you can stop the command.

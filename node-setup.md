@@ -140,3 +140,61 @@ docker run -d -v /blockchain:/blockchain
 ```
 Last line `--syncmode full` is optional and it's needed only for running an archive node.
 
+# Add node to Dashboard
+
+There is a community ran [Pulse Chain Status Dashboard](https://dashboard.blockfaction.io/) which display status of several PulseChain nodes. In order to register your node(s), you need need to operated `eth-net-intelligence-api` service which talks to your PulseChain node through the RPC web service interface (typically TCP port 8575).
+
+If you configured the validator node using instructions above you need add arguments `--http --http.api=eth,net,web3 --http.addr=0.0.0.0` to be passed to `geth`.
+{:.warning}
+
+Create a working directory (name of the directory will be used to form name of Docker container created by the `docker-compose` tool) for example named `stats`. In this directory create a file named `Dockerfile` with the following content:
+```Dockerfile
+FROM node
+
+RUN apt-get update && \
+        apt-get install git && \
+        apt-get clean
+
+RUN git clone https://github.com/ethereum/eth-net-intelligence-api && \
+        cd eth-net-intelligence-api && \
+        npm install
+
+WORKDIR eth-net-intelligence-api
+
+ENTRYPOINT node app.js
+```
+All further commands have to be executed from within the working directory.
+
+Now build Docker image with `eth-net-intelligence-api` tool by running:
+```sh
+docker build -t eth-net-intelligence-api .
+```
+
+As the next test create file `docker-compose.yml` with the following content:
+```yaml
+version: '3.4'
+
+services:
+  monitor:
+    image: eth-net-intelligence-api
+    tty: true
+    restart: unless-stopped
+    network_mode: "host"
+    environment:
+      INSTANCE_NAME: <Human Readable Name of Your Node>
+      WS_SERVER: wss://dashboard.blockfaction.io
+      RPC_HOST: localhost
+      RPC_PORT: 8575
+      WS_SECRET: <secret-password>
+```
+
+The value for `WS_SECRET` can be obtained from the [@PulseDEV Telegram group](https://t.me/PulseDEV).
+
+You need to make sure that Docker networking is setup so that `node` processed running under the `monitor` container can access the RPC port of the PulseChain node. You can considering merging both `docker-compose.yml` files into one and configured shared networking - then you need to modify the `RPC_HOST` value to address the PulseChain node.
+{:.info}
+
+Finally register the container by running:
+```sh
+docker-compose up -d
+```
+

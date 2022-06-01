@@ -50,7 +50,8 @@ When the key import succeeds you can remove `/blockchain/privatekey.txt`.
 
 You can setup the Docker container with PulseChain node manually. You have to have a file with the password for the private key stored under the `/blockchain` directory for example as `/blockchain/password.txt`.
 ```sh
-docker run -d -v /blockchain:/blockchain ---oom-kill-disable --restart always --stop-timeout=3m \
+docker run -d -v /blockchain:/blockchain \
+	--oom-kill-disable --restart always --stop-timeout=180 \
 	-p 30312:30312/tcp -p 30312:30312/udp \
 	--name pulsechain_node \
 	registry.gitlab.com/pulsechaincom/go-pulse \
@@ -128,7 +129,8 @@ At the moment running the RPC node requires the `--mine` argument, otherwise som
 
 You can setup the Docker container with PulseChain RPC node manually using this command:
 ```sh
-docker run -d -v /blockchain:/blockchain 
+docker run -d -v /blockchain:/blockchain \
+        --oom-kill-disable --restart always --stop-timeout=180 \
 	-p 30312:30312/tcp -p 30312:30312/udp -p 8575:8575/tcp -p 8576:8576/tcp \
 	--name pulsechain_rpcnode \
 	registry.gitlab.com/pulsechaincom/go-pulse \

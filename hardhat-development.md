@@ -33,10 +33,7 @@ Now edit `hardhat.config.js` to include:
     networks: {
       testnet: {
          chainId: 941,
-         urls: {
-           apiURL: "https://scan.v2b.testnet.pulsechain.com/api",
-           browserURL: "https://scan.v2b.testnet.pulsechain.com/api",
-         },
+         url: "https://rpc.v2b.testnet.pulsechain.com",
          accounts: (process.env.PKEYS || '').split(','),
          gasPrice: 50000000000,
       }

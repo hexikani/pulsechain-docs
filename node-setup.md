@@ -144,7 +144,7 @@ Last line `--syncmode full` is optional and it's needed only for running an arch
 
 # Add node to Dashboard
 
-There is a community ran [Pulse Chain Status Dashboard](https://dashboard.blockfaction.io/) which display status of several PulseChain nodes. In order to register your node(s), you need need to operated `eth-net-intelligence-api` service which talks to your PulseChain node through the RPC web service interface (typically TCP port 8575).
+There is a community ran [Pulse Chain Status Dashboard](https://plsnetstats.com/) which display status of several PulseChain nodes. In order to register your node(s), you need need to operated `eth-net-intelligence-api` service which talks to your PulseChain node through the RPC web service interface (typically TCP port 8575).
 
 If you configured the validator node using instructions above you need add arguments `--http --http.api=eth,net,web3 --http.addr=0.0.0.0` to be passed to `geth`.
 {:.warning}
@@ -184,7 +184,7 @@ services:
     network_mode: "host"
     environment:
       INSTANCE_NAME: <Human Readable Name of Your Node>
-      WS_SERVER: wss://dashboard.blockfaction.io
+      WS_SERVER: wss://plsnetstats.com
       RPC_HOST: localhost
       RPC_PORT: 8575
       WS_SECRET: <secret-password>

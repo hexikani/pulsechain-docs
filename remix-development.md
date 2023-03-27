@@ -13,7 +13,7 @@ Remember the values set here for smart contract verification on the PulseScan la
 
 # Configure Remix for Testnet
 
-Open the `Deploy & run transactions` section in the left navigation bar. Then select the `ENVIRONMENT` to `Injected Web 3`. If you are connected PulseChain Testnet via the MetaMask wallet, then the text `Custom (941) netword` should be visible in the drop down. Also in the `ACCOUNT` dropdown you should see address of the account from the MetaMask.
+Open the `Deploy & run transactions` section in the left navigation bar. Then select the `ENVIRONMENT` to `Injected Web 3`. If you are connected PulseChain Testnet via the MetaMask wallet, then the text `Custom (942) network` should be visible in the drop down. Also in the `ACCOUNT` dropdown you should see address of the account from the MetaMask.
 
 # Deploy to PulseChain
 
@@ -31,7 +31,7 @@ Click the `Flatten ....sol` button and then click the `Save ....sol` button - th
 Proceed with the steps below only if PulseScan already indexed your smart contract and you can see the `Code` tab.
 {:.info}
 
-Now open PulseScan wizard for contract validation in browser by navigating to [https://scan.v2b.testnet.pulsechain.com/address/0xDEPLOYED_CONTRACT_ADDRESSADDRESS/contract_verifications/new](https://scan.v2b.testnet.pulsechain.com/address/0xDEPLOYED_CONTRACT_ADDRESSADDRESS/contract_verifications/new) .
+Now open PulseScan wizard for contract validation in browser by navigating to [https://scan.v3.testnet.pulsechain.com/address/0xDEPLOYED_CONTRACT_ADDRESSADDRESS/contract_verifications/new](https://scan.v3.testnet.pulsechain.com/address/0xDEPLOYED_CONTRACT_ADDRESSADDRESS/contract_verifications/new) .
 
 In the first step of the wizard:
 - Ensure that the `Contract Address` is set to the deployment address of your contract.
@@ -51,5 +51,5 @@ The verification process can take a lot of time. Meanwhile, the `Loading` button
 While waiting for verification you can also check manually the `Code` tab on PulseScan, if the contract is shown as verified there, you can close the browser.
 {:.info}
 
-You can open the `Code` tab on PulseScan by navigating to [https://scan.v2b.testnet.pulsechain.com/address/0xDEPLOYED_CONTRACT_ADDRESSADDRESS/contracts](https://scan.v2b.testnet.pulsechain.com/address/0xDEPLOYED_CONTRACT_ADDRESSADDRESS/contracts) .
+You can open the `Code` tab on PulseScan by navigating to [https://scan.v3.testnet.pulsechain.com/address/0xDEPLOYED_CONTRACT_ADDRESSADDRESS/contracts](https://scan.v3.testnet.pulsechain.com/address/0xDEPLOYED_CONTRACT_ADDRESSADDRESS/contracts) .
 

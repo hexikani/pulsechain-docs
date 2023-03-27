@@ -32,8 +32,8 @@ Now edit `hardhat.config.js` to include:
   module.exports = {
     networks: {
       testnet: {
-         chainId: 941,
-         url: "https://rpc.v2b.testnet.pulsechain.com",
+         chainId: 942,
+         url: "https://rpc.v3.testnet.pulsechain.com",
          accounts: (process.env.PKEYS || '').split(','),
          gasPrice: 50000000000,
       }
@@ -96,10 +96,10 @@ Then add the following statements to your `hardhat.config.js` at the global scop
 require("@nomiclabs/hardhat-etherscan");
 const { chainConfig } = require("@nomiclabs/hardhat-etherscan/dist/src/ChainConfig");
 chainConfig['testnet'] = {
-  chainId: 941,
+  chainId: 942,
   urls: {
-    apiURL: "https://scan.v2b.testnet.pulsechain.com/api",
-    browserURL: "https://scan.v2b.testnet.pulsechain.com",
+    apiURL: "https://scan.v3.testnet.pulsechain.com/api",
+    browserURL: "https://scan.v3.testnet.pulsechain.com",
   },
 }
 ```

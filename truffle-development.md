@@ -54,11 +54,11 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
       provider: () =>
         new HDWalletProvider(
           (process.env.PKEYS || "").split(","), // Array of account private keys
-          "https://rpc.v2b.testnet.pulsechain.com"
+          "https://rpc.v3.testnet.pulsechain.com"
         ),
       gas: 5000000,
       gasPrice: 50000000000,
-      network_id: 941, // PulseChain Testnet network id
+      network_id: 942, // PulseChain Testnet network id
     },
 ```
 This defines a new network `testnet` which can be used by passed as `--network testnet` arguments to `tuffle`.
@@ -114,11 +114,11 @@ Truffle verification plugin does not support PulseChain, therefore it needs to b
 Edit `./node_modules/truffle-plugin-verify/constants.js` and:
 - add to `API_URLS` a new line:
 ```javascript
-941: 'https://scan.v2b.testnet.pulsechain.com/api',
+942: 'https://scan.v3.testnet.pulsechain.com/api',
 ```
 - add to `EXPLORER_URLS` a new line:
 ```javascript
-941: 'https://scan.v2b.testnet.pulsechain.com',
+942: 'https://scan.v3.testnet.pulsechain.com',
 ```
 
 Finally edit `./node_modules/truffle-plugin-verify/verify.js` and comment out line `offset: 1` (used in function `fetchConstructorValues()`). PulseScan does support this argument and `txlist` requests would otherwise get stuck and time out.

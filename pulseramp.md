@@ -11,5 +11,4 @@ PulseRamp supports only selected tokens - JSON list of tokens supported by the b
 
 https://scan.v2b.testnet.pulsechain.com/address/0x5b0aeEd913B8962706839D44B6A140E4746B15E3
 
-Presentation of the history of the bridge development from HEX Conference 2022:
-{% include youtube-video id='pOnq0x3WIpo' start=0 %}
+Presentation of the history of the bridge development from HEX Conference 2022 is [on YouTube](https://www.youtube.com/watch?v=pOnq0x3WIpo).

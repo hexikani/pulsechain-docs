@@ -1,14 +1,11 @@
 ---
-title: PulseChain Unofficial Documentation
+title: Unofficial PulseChain Documentation
 ---
 
-This page contains technical documentation about [PulseChain](https://www.pulsechain.com/) blockchain network and some of the projects running on PulseChain.
-This documentation is created by community independently on the PulseChain development team with the intent to simplify onboarding of new developers and blockchain projects and to support the development community.
+This page contains technical and developer documentation about [PulseChain](https://www.pulsechain.com/) blockchain network and some of the projects running on PulseChain.
+This documentation is created by community independently on the PulseChain development team with the intent to simplify onboarding of new developers and blockchain projects and to support the development community. You can contribute to this documentation through [PulseChain Docs Github Repository](https://github.com/hexikani/pulsechain-docs).
 
-
-PulseChain is a full state for of Ethereum 2.0.
-
-Native token of PulseChain is _Pulse_ (PLS). Smallest unit of PLS is _Beat_ (PLS to Beat is the same as ETH to Wei).
+PulseChain is a full state for of Ethereum 2.0. Native token of PulseChain is _Pulse_ (PLS). Smallest unit of PLS used to referred as _Beat_ (PLS to Beat is the same as ETH to Wei).
 
 PulseChain currently runs only as a Testnet version *V3*. There is no Mainnet yet.
 {:.warning}
@@ -20,7 +17,7 @@ If you are interested in development for PulseChain you can contact developers i
 
 
 
-# Validators & Staking dApp
+# Validators & Staking
 
 Validators and stakes from are managed through a set of smart contracts. PulseChain's default user interface for this is dApp which is dedicated for each version of the PulseChain:
 - [Validators management for Testnet V3](https://launchpad.v3.testnet.pulsechain.com/)

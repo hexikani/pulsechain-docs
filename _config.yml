@@ -1,0 +1,39 @@
+title: PulseChain Docs
+email: hexikani@gmail.com
+description: Unofficial technical and developer documentation about PulseChain
+
+remote_theme: just-the-docs/just-the-docs
+plugins:
+  - jekyll-remote-theme
+color_scheme: dark
+
+author:
+  type      : organization
+  name      : HEXPulse.info
+  url       : https://www.hexpulse.info
+  email     : hexikani@gmail.com
+  twitter   : hexpulseinfo
+  telegram  : hexpulseinfo
+  github    : hexikani
+
+repository: hexikani/pulsechain-docs
+repository_tree: main
+
+license: CC-BY-NC-4.0 
+
+exclude:
+  - LICENSE
+  - README.md
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      lang: en
+      sidebar:
+        nav: "docs"
+      license: true
+      show_edit_on_github: true
+      show_date: false
+
+

@@ -2,6 +2,9 @@
 title: Setting up PulseChain node
 ---
 
+This documentation is for PulseChain Testnet v2b.
+{:.warning}
+
 This article assumes that `/blockchain` directory will be used to store all files created by the node. It is also assumed that this directory will be one to one mapped as a volume into a Docker container. Of course both these directories can be changed.
 {:.info}
 

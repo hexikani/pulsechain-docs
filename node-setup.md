@@ -2,7 +2,7 @@
 title: Setting up PulseChain node
 ---
 
-This article assumes that `/blockchain` directory will be used to store all files created by the node. It is also assumed that this directory will be one to one mapped as a volume into a Docker container. Of course both these directories can be changed.
+This article assumes that `/blockchain` directory will be used to store all files created by the node client. It is also assumed that this directory will be one to one mapped as a volume into a Docker containers. You can replace this directory with any other location of your choice, however directory must be created with permissions allowing Docker to write there, before you proceed further.
 {:.info}
 
 # Types of nodes
@@ -12,8 +12,10 @@ PulseChain node software is composed of 2 client components:
   - **go-pulse** (**geth**) - Docker image `registry.gitlab.com/pulsechaincom/go-pulse`.
   - **Erigon** - Docker image `registry.gitlab.com/pulsechaincom/erigon-pulse`.
 - **Consensus Layer** (CL) which can be:
-  - **Prysm** - Docker image `registry.gitlab.com/pulsechaincom/prysm-pulse/beacon-chain`.
-  - **Lighthouse** - Docker image `registry.gitlab.com/pulsechaincom/lighthouse-pulse`.
+  - **Prysm** - An implementation of the consensus protocol with a focus on usability, security, and reliability. Originally developed by Prysmatic Labs, a company with the sole focus on the development of their client.
+    - Docker image `registry.gitlab.com/pulsechaincom/prysm-pulse/beacon-chain`.
+  - **Lighthouse** - A consensus client with a heavy focus on speed and security. Originally built by Sigma Prime, an information security and software engineering firm who have funded Lighthouse along with the Ethereum Foundation, Consensys, and private individuals.
+    - Docker image `registry.gitlab.com/pulsechaincom/lighthouse-pulse`.
 
 You can combine any EL client and any CL client, but `geth` + `lighthouse` seems to be the easiest option. EL client will not work without CL.
 {:.info}
@@ -30,7 +32,7 @@ All mentioned Docker container are preconfigured to run specific node command an
 
 ## Securing EL and CL communication
 
-EL and CL clients need to communicate and for this purpose you need to create encryption key, so called _JWT Secret_. You can use standard `openssl` command line tool to do so:
+EL and CL clients need to communicate using _Engine API_ and for this purpose you need to create secret encryption key, so called _JWT Secret_. You can use standard `openssl` command line tool to do so:
 ```sh
 openssl rand -hex 32 | tr -d "\n" > /blockchain/jwt.hex
 ```
@@ -73,7 +75,7 @@ Note, that this Docker container is setup with `host` networking what makes it d
 {:.warning}
 
 All the `--ws*` and `--http` switches, together with 8545 and 8546 port mappings can be removed, if you don't want to use your node as RPC service provider.
-Note that RPC ports 8545 (HTTP) and 8575 (WebSockets) are only allowed locally on the host computer.
+Note that RPC ports 8545 (HTTP) and 8646 (WebSockets) are only allowed locally on the host computer.
 {:.info}
 
 To see the logs of the container run:
@@ -95,22 +97,24 @@ docker run -d \
   --net=pulsenet \
   --name=pulsechain_execution \
   -p 127.0.0.1:8545:8545/tcp \
-  -p 127.0.0.1:8546:8546/tcp \
   -p 30303:30303 \
+  -p 30304:30304 \
+  -p 42069:42609 \
   -v /blockchain:/blockchain \
   registry.gitlab.com/pulsechaincom/go-pulse:latest \
   --chain=pulsechain-testnet-v3 \
   --pulsechain-testnet-v3 \
   --datadir=/blockchain/erigon \
   --authrpc.jwtsecret=/blockchain/jwt.hex \
-  --externalcl
+  --externalcl \
+  --snapshots=false
 ```
 
-For node's P2P connectivity the TCP and UDP port 30303 should be made accessible from your network and also from the Internet.
+For node's P2P connectivity the TCP and UDP port 30303, 30304 and 42069 should be made accessible from your network and also from the Internet.
 Note, that this Docker container is setup with `host` networking what makes it directly exposed to the network of the host where the container runs and the `-p` port mappings are ignored - they are stated to clarified which ports should be exposed in more general case.
 {:.warning}
 
-Note that RPC ports 8545 (HTTP) and 8575 (WebSockets) are only allowed locally on the host computer.
+Note that RPC ports 8545 (HTTP + WebSockets) are only allowed locally on the host computer.
 {:.info}
 
 To see the logs of the container run:
@@ -195,8 +199,8 @@ services:
     image: registry.gitlab.com/pulsechaincom/go-pulse:latest
     tty: true
     ports:
-      - "127.0.0.1:8575:8575/tcp"
-      - "127.0.0.1:8576:8576/tcp"
+      - "127.0.0.1:8545:8545/tcp"
+      - "127.0.0.1:8546:8546/tcp"
       - "30312:30312/tcp"
       - "30312:30312/udp"
     volumes:

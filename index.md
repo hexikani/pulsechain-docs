@@ -77,3 +77,4 @@ Basic information:
 - Chain ID: `942`
 - Public RPC endpoint: `https://rpc.v3.testnet.pulsechain.com`
 - Public WebSocket endpoint: `wss://ws.v3.testnet.pulsechain.com`
+- Canonical staking deposit contract address `0x3693693693693693693693693693693693693693`

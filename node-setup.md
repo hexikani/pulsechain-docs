@@ -165,13 +165,12 @@ docker run -d \
   -p 127.0.0.1:5052:5052 \
   -v /blockchain:/blockchain \
   registry.gitlab.com/pulsechaincom/prysm-pulse/beacon-chain \
-  lighthouse \
-  beacon_node \
-  --network=pulsechain_testnet_v3 \
-  --datadir=/blockchain/lighthouse \
-  --execution-jwt=/blockchain/jwt.hex \
+  --pulsechain-testnet-v3 \
+  --datadir=/blockchain/prysm \
+  --jwt-secret=/blockchain/jwt.hex \
   --execution-endpoint=http://pulsechain_execution:8551 \
   --checkpoint-sync-url=https://checkpoint.v3.testnet.pulsechain.com \
+  --genesis-beacon-api-url=https://checkpoint.v3.testnet.pulsechain.com
 ```
 
 This command assumes that EL client exposes JWT interface on port 8551 (`pulsechain_execution` virtual address of it on the `pulsenet` virtual network).
@@ -259,4 +258,12 @@ docker-componse down
 
 # Registering validator
 
-TBW
+To become a validator you must proceed with register at [PulseChain LaunchPad](https://launchpad.v3.testnet.pulsechain.com/en/overview).
+
+
+docker run -it --rm -v /data/blockchain/pulsechain.secret:/blockchain/secret registry.gitlab.com/pulsechaincom/lighthouse-pulse:latest lighthouse --netwo
+rk=pulsechain_testnet_v3 account validator import --directory=/blockchain/secret/validator_keys
+
+docker run -it --rm -v /data/blockchain/pulsechain:/blockchain -v /data/blockchain/pulsechain.secret:/blockchain/secret registry.gitlab.com/pulsechaincom/lighthouse-pulse:latest lighthouse --network=pulsechain_testnet_v3 account validator import --directory=/blockchain/secret/validator_keys --datadir /blockchain/
+
+

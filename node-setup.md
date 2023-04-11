@@ -71,7 +71,6 @@ docker run -d \
 ```
 
 For node's P2P connectivity the TCP and UDP port 30303 should be made accessible from your network and also from the Internet.
-Note, that this Docker container is setup with `host` networking what makes it directly exposed to the network of the host where the container runs and the `-p` port mappings are ignored - they are stated to clarified which ports should be exposed in more general case.
 {:.warning}
 
 All the `--ws*` and `--http` switches, together with 8545 and 8546 port mappings can be removed, if you don't want to use your node as RPC service provider.
@@ -89,7 +88,7 @@ Typical messages and what they mean:
 
 ## Running EL Erigon node
 
-You can manually setup the `go-erigon` Docker container with PulseChain Execution Layer node by running:
+You can manually setup the `erigon` Docker container with PulseChain Execution Layer node by running:
 ```sh
 docker run -d \
   --stop-timeout=180 \
@@ -101,7 +100,7 @@ docker run -d \
   -p 30304:30304 \
   -p 42069:42609 \
   -v /blockchain:/blockchain \
-  registry.gitlab.com/pulsechaincom/go-pulse:latest \
+  registry.gitlab.com/pulsechaincom/erigon:latest \
   --chain=pulsechain-testnet-v3 \
   --pulsechain-testnet-v3 \
   --datadir=/blockchain/erigon \
@@ -111,7 +110,6 @@ docker run -d \
 ```
 
 For node's P2P connectivity the TCP and UDP port 30303, 30304 and 42069 should be made accessible from your network and also from the Internet.
-Note, that this Docker container is setup with `host` networking what makes it directly exposed to the network of the host where the container runs and the `-p` port mappings are ignored - they are stated to clarified which ports should be exposed in more general case.
 {:.warning}
 
 Note that RPC ports 8545 (HTTP + WebSockets) are only allowed locally on the host computer.
@@ -200,8 +198,8 @@ services:
     ports:
       - "127.0.0.1:8545:8545/tcp"
       - "127.0.0.1:8546:8546/tcp"
-      - "30312:30312/tcp"
-      - "30312:30312/udp"
+      - "127.0.0.1:6060:6060/tcp" # if used with --metrics or --pprof
+      - "30303:30303"
     volumes:
       - /blockchain:/blockchain
     restart: unless-stopped
@@ -221,6 +219,10 @@ services:
       - --ws
       - --ws.api=eth,net,web3
       - --ws.addr=0.0.0.0
+      - --metrics
+      - --metrics.addr=0.0.0.0 
+      - --pprof
+      - --pprof.addr=0.0.0.0
   pulsechain_consensus:
      image: registry.gitlab.com/pulsechaincom/lighthouse-pulse
      tty: true

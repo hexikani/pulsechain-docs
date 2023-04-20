@@ -100,11 +100,12 @@ docker run -d \
   -p 30304:30304 \
   -p 42069:42609 \
   -v /blockchain:/blockchain \
-  registry.gitlab.com/pulsechaincom/erigon:latest \
+  registry.gitlab.com/pulsechaincom/erigon-pulse:latest \
   --chain=pulsechain-testnet-v4 \
-  --pulsechain-testnet-v4 \
   --datadir=/blockchain/erigon \
   --authrpc.jwtsecret=/blockchain/jwt.hex \
+  --authrpc.addr=0.0.0.0 \
+  --authrpc.vhosts=pulsechain_execution \
   --externalcl \
   --snapshots=false
 ```

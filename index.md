@@ -7,7 +7,7 @@ This documentation is created by community independently on the PulseChain devel
 
 PulseChain is a full state for of Ethereum 2.0 with 10 seconds block time. Native token of PulseChain is _Pulse_ (PLS). Smallest unit of PLS used to referred as _Beat_ (PLS to Beat is the same as ETH to Wei).
 
-PulseChain currently runs only as a Testnet version *V3*. There is no Mainnet yet.
+PulseChain currently runs only as a Testnet version *v4*. There is no Mainnet yet.
 {:.warning}
 
 If you are interested in development for PulseChain you can contact developers in the [PulseDEV Telegram group](https://t.me/PulseDEV).
@@ -20,7 +20,7 @@ PulseChain uses same consensus as Ethereum 2.0 and implements EIP-1159.
 # Validators & Staking
 
 Validators and stakes from are managed through a set of smart contracts. PulseChain's default user interface for this is dApp which is dedicated for each version of the PulseChain:
-- [Validators management for Testnet V3](https://launchpad.v3.testnet.pulsechain.com/)
+- [Validators management for Testnet v4](https://launchpad.v4.testnet.pulsechain.com/)
 
 # Testnets
 
@@ -51,6 +51,9 @@ Basic information:
 
 ## Testnet v2b
 
+Testnet v2b was switched off, was replaced with v3.
+{:.warning}
+
 Testnet v2b added:
 - PLS and PLSX balances
 - PulseX DEX
@@ -63,7 +66,10 @@ Basic information:
 - Public RPC endpoint: `https://rpc.v2b.testnet.pulsechain.com`
 - Public WebSocket endpoint: `wss://ws.v2b.testnet.pulsechain.com`
 
-## Testnet V3
+## Testnet v3
+
+Testnet v2b is deprecated, was replaced with v4.
+{:.warning}
 
 Consensus was replaced with native Ethereum 2.0 one.
 
@@ -78,3 +84,18 @@ Basic information:
 - Public RPC endpoint: `https://rpc.v3.testnet.pulsechain.com`
 - Public WebSocket endpoint: `wss://ws.v3.testnet.pulsechain.com`
 - Canonical staking deposit contract address `0x3693693693693693693693693693693693693693`
+
+## Testnet v4
+
+Basic information:
+- Block time: 10 seconds
+- Block gas limit: 30,000,000
+- Faucet to get 10 tPLS: https://faucet.v4.testnet.pulsechain.com/
+- PulseChain Block Explorer: https://scan.v4.testnet.pulsechain.com/
+- PulseChain Beacon Explorer: https://beacon.v4.testnet.pulsechain.com/
+- Last Ethereum pre-fork block: `16492699`
+- Chain ID: `943`
+- Public RPC endpoint: `https://rpc.v4.testnet.pulsechain.com`
+- Public WebSocket endpoint: `wss://ws.v4.testnet.pulsechain.com`
+- Canonical staking deposit contract address `0x3693693693693693693693693693693693693693`
+

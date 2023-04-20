@@ -57,7 +57,7 @@ docker run -d \
   -p 30303:30303 \
   -v /blockchain:/blockchain \
   registry.gitlab.com/pulsechaincom/go-pulse:latest \
-  --pulsechain-testnet-v3 \
+  --pulsechain-testnet-v4 \
   --datadir=/blockchain/geth \
   --authrpc.jwtsecret=/blockchain/jwt.hex \
   --authrpc.addr=0.0.0.0 \
@@ -101,8 +101,8 @@ docker run -d \
   -p 42069:42609 \
   -v /blockchain:/blockchain \
   registry.gitlab.com/pulsechaincom/erigon:latest \
-  --chain=pulsechain-testnet-v3 \
-  --pulsechain-testnet-v3 \
+  --chain=pulsechain-testnet-v4 \
+  --pulsechain-testnet-v4 \
   --datadir=/blockchain/erigon \
   --authrpc.jwtsecret=/blockchain/jwt.hex \
   --externalcl \
@@ -135,11 +135,11 @@ docker run -d \
   registry.gitlab.com/pulsechaincom/lighthouse-pulse \
   lighthouse \
   beacon_node \
-  --network=pulsechain_testnet_v3 \
+  --network=pulsechain_testnet_v4 \
   --datadir=/blockchain/lighthouse \
   --execution-jwt=/blockchain/jwt.hex \
   --execution-endpoint=http://pulsechain_execution:8551 \
-  --checkpoint-sync-url=https://checkpoint.v3.testnet.pulsechain.com \
+  --checkpoint-sync-url=https://checkpoint.v4.testnet.pulsechain.com \
   --http \
   --http-address 127.0.0.1
 ```
@@ -163,12 +163,12 @@ docker run -d \
   -p 127.0.0.1:5052:5052 \
   -v /blockchain:/blockchain \
   registry.gitlab.com/pulsechaincom/prysm-pulse/beacon-chain \
-  --pulsechain-testnet-v3 \
+  --pulsechain-testnet-v4 \
   --datadir=/blockchain/prysm \
   --jwt-secret=/blockchain/jwt.hex \
   --execution-endpoint=http://pulsechain_execution:8551 \
-  --checkpoint-sync-url=https://checkpoint.v3.testnet.pulsechain.com \
-  --genesis-beacon-api-url=https://checkpoint.v3.testnet.pulsechain.com
+  --checkpoint-sync-url=https://checkpoint.v4.testnet.pulsechain.com \
+  --genesis-beacon-api-url=https://checkpoint.v4.testnet.pulsechain.com
 ```
 
 This command assumes that EL client exposes JWT interface on port 8551 (`pulsechain_execution` virtual address of it on the `pulsenet` virtual network).
@@ -207,7 +207,7 @@ services:
     #oom_kill_disable: true
     command:
       - --datadir=/blockchain/execution
-      - --pulsechain-testnet-v3
+      - --pulsechain-testnet-v4
       - --authrpc.jwtsecret=/blockchain/secret/jwt.hex
       - --authrpc.addr=pulsechain_execution
       - --authrpc.vhosts=pulsechain_execution
@@ -238,11 +238,11 @@ services:
      command:
        - lighthouse
        - beacon_node
-       - --network=pulsechain_testnet_v3
+       - --network=pulsechain_testnet_v4
        - --datadir=/blockchain/consensus
        - --execution-jwt=/blockchain/secret/jwt.hex
        - --execution-endpoint=http://pulsechain_execution:8551
-       - --checkpoint-sync-url=https://checkpoint.v3.testnet.pulsechain.com
+       - --checkpoint-sync-url=https://checkpoint.v4.testnet.pulsechain.com
        - --http
        - --http-address
        - 127.0.0.1
@@ -260,7 +260,7 @@ docker-componse down
 
 # Registering validator
 
-To become a validator you must proceed with register at [PulseChain LaunchPad](https://launchpad.v3.testnet.pulsechain.com/en/overview).
+To become a validator you must proceed with register at [PulseChain LaunchPad](https://launchpad.v4.testnet.pulsechain.com/en/overview).
 
 
 docker run -it --rm -v /data/blockchain/pulsechain.secret:/blockchain/secret registry.gitlab.com/pulsechaincom/lighthouse-pulse:latest lighthouse --netwo

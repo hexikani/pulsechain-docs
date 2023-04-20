@@ -4,6 +4,15 @@ title: PulseX DEX
 
 PulseX is a [Uniswap V2](https://docs.uniswap.org/protocol/V2/introduction) compatible DEX, a PancakeSwap fork, which was launched for the first time with PulseChain Testnet v2b.
 
+# Testnet v4
+
+Smart contracts:
+- Wrapped PLS: `0x70499adEBB11Efd915E3b69E700c331778628707`
+- PulseX Token: `0x8a810ea8B121d08342E9e7696f4a9915cBE494B7`
+- PulseXRouter02: `0xDaE9dd3d1A52CfCe9d5F2fAC7fDe164D500E50f7`
+- PulseXFactory02: `0xFf0538782D122d3112F75dc7121F61562261c0f7`
+- MasterChef: `0x3b34Fff74497cA21771ce9a0c11cb07490686A58`
+
 # Testnet v3
 
 Smart contracts:
@@ -22,7 +31,7 @@ Smart contracts:
 - MasterChef: `0xB635be96898552bBe80043239c57ea864223fdC1`
 
 ## GraphQL
-PulseX provide GraphQL [endpoint](https://graph.v3.testnet.pulsechain.com/subgraphs/name/pulsechain/pulsex).
+PulseX provide GraphQL [endpoint](https://graph.v4.testnet.pulsechain.com/subgraphs/name/pulsechain/pulsex).
 
 Example query to list all token pairs:
 ```

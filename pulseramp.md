@@ -1,14 +1,10 @@
 ---
-title: PulseRamp - PulseChain bridge
+title: PulseChain Bridge (PulseRamp)
 ---
 
-PulseChain Brige [PulseRamp.com](https://pulseramp.com) based on the Omnibridge. It's been thoroughly audited and never had any problems before. It was chosen among more than 120 possible bridges.
+Official PulseChain Brige [bridge.pulsechain.com](https://bridge.pulsechain.com), formerly known also as "PulseRamp", is based on the Omnibridge and connects Ethereum and PulseChain networks. It's been thoroughly audited and never had any problems before. It was chosen among more than 120 possible bridges.
 It is an extension of Tokenbridge. You can read more [about it here](https://docs.tokenbridge.net/eth-xdai-amb-bridge/multi-token-extension).
 
-PulseRamp supports only selected tokens - JSON list of tokens supported by the bridge is available at [https://tokens.pulseramp.com/](https://tokens.pulseramp.com/) or [formatted using tokenlists.org](https://tokenlists.org/token-list?url=https://tokens.pulseramp.com/).
-
-`WETHOmnibridgeRouter` smart contract address on PulseChain Testnet v2b side is [0x5b0aeEd913B8962706839D44B6A140E4746B15E3](https://scan.v2b.testnet.pulsechain.com/address/0x5b0aeEd913B8962706839D44B6A140E4746B15E3).
-
-https://scan.v2b.testnet.pulsechain.com/address/0x5b0aeEd913B8962706839D44B6A140E4746B15E3
+PulseChain Bridge wraps all ERC20 tokens on the other side of the bridget, except of WPLS token from Ethereum (`0xA882606494D86804B5514E07e6Bd2D6a6eE6d68A`) which is bridged as native PLS on PulseChain side.
 
 Presentation of the history of the bridge development from HEX Conference 2022 is [on YouTube](https://www.youtube.com/watch?v=pOnq0x3WIpo).

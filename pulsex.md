@@ -4,6 +4,28 @@ title: PulseX DEX
 
 PulseX is a [Uniswap V2](https://docs.uniswap.org/protocol/V2/introduction) compatible DEX, a PancakeSwap fork, which was launched for the first time with PulseChain Testnet v2b.
 
+# Mainnet - PulseX v2
+
+Smart contracts:
+- Wrapped PLS: `0xA1077a294dDE1B09bB078844df40758a5D0f9a27`
+- PulseX Token: `0x95B303987A60C71504D99Aa1b13B4DA07b0790ab`
+- Incentive Token: `0x2fa878Ab3F87CC1C9737Fc071108F904c0B0C95d`
+- PulseXRouter02: `0x165C3410fC91EF562C50559f7d2289fEbed552d9`
+- PulseXFactory02: `0x29eA7545DEf87022BAdc76323F373EA1e707C523`
+- MasterChef: `0xB2Ca4A66d3e57a5a9A12043B6bAD28249fE302d4`
+
+# Mainnet - PulseX v1
+
+PulseX v1 has a bug in calculation of fees for liqidity providers. Therefore it was replaced by "v2".
+
+Smart contracts:
+- Wrapped PLS: `0xA1077a294dDE1B09bB078844df40758a5D0f9a27`
+- PulseX Token: `0x95B303987A60C71504D99Aa1b13B4DA07b0790ab`
+- Incentive Token: `0x2fa878Ab3F87CC1C9737Fc071108F904c0B0C95d`
+- PulseXRouter02: `0x98bf93ebf5c380C0e6Ae8e192A7e2AE08edAcc02`
+- PulseXFactory02: `0x1715a3E4A142d8b698131108995174F37aEBA10D`
+- MasterChef: `0xB2Ca4A66d3e57a5a9A12043B6bAD28249fE302d4`
+
 # Testnet v4
 
 Smart contracts:

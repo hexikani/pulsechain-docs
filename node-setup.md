@@ -70,6 +70,8 @@ docker run -d \
   --http.addr=0.0.0.0
 ```
 
+TODO: --gcmode=archive
+
 For node's P2P connectivity the TCP and UDP port 30303 should be made accessible from your network and also from the Internet.
 {:.warning}
 
@@ -265,8 +267,8 @@ To become a validator you must proceed with register at [PulseChain LaunchPad](h
 
 
 docker run -it --rm -v /data/blockchain/pulsechain.secret:/blockchain/secret registry.gitlab.com/pulsechaincom/lighthouse-pulse:latest lighthouse --netwo
-rk=pulsechain_testnet_v3 account validator import --directory=/blockchain/secret/validator_keys
+rk=pulsechain_testnet_v4 account validator import --directory=/blockchain/secret/validator_keys
 
-docker run -it --rm -v /data/blockchain/pulsechain:/blockchain -v /data/blockchain/pulsechain.secret:/blockchain/secret registry.gitlab.com/pulsechaincom/lighthouse-pulse:latest lighthouse --network=pulsechain_testnet_v3 account validator import --directory=/blockchain/secret/validator_keys --datadir /blockchain/
+docker run -it --rm -v /data/blockchain/pulsechain:/blockchain -v /data/blockchain/pulsechain.secret:/blockchain/secret registry.gitlab.com/pulsechaincom/lighthouse-pulse:latest lighthouse --network=pulsechain_testnet_v4 account validator import --directory=/blockchain/secret/validator_keys --datadir /blockchain/
 
 

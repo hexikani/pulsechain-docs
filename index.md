@@ -7,8 +7,8 @@ This documentation is created by community independently on the PulseChain devel
 
 PulseChain is a full state for of Ethereum 2.0 with 10 seconds block time. Native token of PulseChain is _Pulse_ (PLS). Smallest unit of PLS used to referred as _Beat_ (PLS to Beat is the same as ETH to Wei).
 
-PulseChain currently runs only as a Testnet version *v4*. There is no Mainnet yet.
-{:.warning}
+PulseChain Mainnet launched on in May 2023. Active Testnet version is *v4*.
+{:.info}
 
 If you are interested in development for PulseChain you can contact developers in the [PulseDEV Telegram group](https://t.me/PulseDEV).
 {:.success}
@@ -20,13 +20,28 @@ PulseChain uses same consensus as Ethereum 2.0 and implements EIP-1159.
 # Validators & Staking
 
 Validators and stakes from are managed through a set of smart contracts. PulseChain's default user interface for this is dApp which is dedicated for each version of the PulseChain:
+- [Validators management for Mainnet](https://launchpad.pulsechain.com/)
 - [Validators management for Testnet v4](https://launchpad.v4.testnet.pulsechain.com/)
 
-# Testnets
+# Mainnet and Testnets history
 
-Official documentation for the PulseChain Testnet is available [in the Gitlab repository](https://gitlab.com/pulsechaincom/pulsechain-testnet).
+Official documentation for the PulseChain Mainnet is available [in the Gitlab repository](https://gitlab.com/pulsechaincom/pulsechain-mainnet) and
+PulseChain Testnet is available [in another Gitlab repository](https://gitlab.com/pulsechaincom/pulsechain-testnet).
 {:.info}
 Testnet uses `tPLS` as the currency symbol for the native coin.
+
+## Mainnet 
+
+Basic information:
+- Block time: 10 seconds
+- Block gas limit: 30,000,000
+- PulseChain Block Explorer: https://scan.pulsechain.com/
+- PulseChain Beacon Explorer: https://beacon.pulsechain.com/
+- Last Ethereum pre-fork block: `17232999`
+- Chain ID: `369`
+- Public RPC endpoint: `https://rpc.pulsechain.com`
+- Public WebSocket endpoint: `wss://rpc.pulsechain.com`
+- Canonical staking deposit contract address `0x3693693693693693693693693693693693693693`
 
 ## Testnet v1
 

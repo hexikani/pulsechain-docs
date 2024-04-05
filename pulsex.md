@@ -4,6 +4,10 @@ title: PulseX DEX
 
 PulseX is a [Uniswap V2](https://docs.uniswap.org/protocol/V2/introduction) compatible DEX, a PancakeSwap fork, which was launched for the first time with PulseChain Testnet v2b.
 
+Related links:
+- Official [list of PulseX token icons](https://tokenlists.org/token-list?url=https://tokens.app.pulsex.com/pulsex-extended.tokenlist.json).
+- Form to [request adding new icon](https://bit.ly/PulseXicon).
+
 # Mainnet - PulseX v2
 
 Smart contracts:
@@ -33,6 +37,8 @@ Smart contracts:
 - PulseX Token: `0x8a810ea8B121d08342E9e7696f4a9915cBE494B7`
 - PulseXRouter02: `0xDaE9dd3d1A52CfCe9d5F2fAC7fDe164D500E50f7`
 - PulseXFactory02: `0xFf0538782D122d3112F75dc7121F61562261c0f7`
+- PulseXRouter02 PulseX v2: `0x636f6407B90661b73b1C0F7e24F4C79f624d0738`
+- PulseXFactory02 PulseX v2: `0x29eA7545DEf87022BAdc76323F373EA1e707C523`
 - MasterChef: `0x3b34Fff74497cA21771ce9a0c11cb07490686A58`
 
 # Testnet v3
@@ -41,7 +47,8 @@ Smart contracts:
 - Wrapped PLS: `0x70499adEBB11Efd915E3b69E700c331778628707`
 - PulseX Token: `0x3b34Fff74497cA21771ce9a0c11cb07490686A58`
 - PulseXRouter02: `0xDaE9dd3d1A52CfCe9d5F2fAC7fDe164D500E50f7`
-- PulseXFactory02: `0x6eFAfcb715F385c71d8AF763E8478FeEA6faDF63`
+- PulseXFactory02: `0xFf0538782D122d3112F75dc7121F61562261c0f7`
+- Incentive  Token: `0x6eFAfcb715F385c71d8AF763E8478FeEA6faDF63`
 - MasterChef: `0x959a437F1444DaDaC8aF997E71EAF0479c810267`
 
 # Testnet v2b
